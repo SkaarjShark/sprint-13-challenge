@@ -1,7 +1,14 @@
 const express = require('express');
+const { logger } = require('./actions/actions-middlware')
+
 const server = express();
 server.disable('x-powered-by')
 server.use(express.json())
+server.use(logger)
+
+server.get('/', (req, res) => {
+    res.send(`<h2>Web Sprint Challenge: Build a web api</h2>`)
+})
 
 // Configure your server here
 // Build your actions router in /api/actions/actions-router.js

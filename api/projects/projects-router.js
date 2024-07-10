@@ -5,11 +5,16 @@ const Projects = require('./projects-model')
 
 const router = express.Router()
 
-router.get('/api/projects', (req, res) => {
-
+router.get('/api/projects', (req, res, next) => {
+    Projects.get()
+        .then(found => {
+            res.json(found)
+        })
+        .catch(next)
 })
 router.get('/api/projects/:id', validateProject, (req, res, next) => {
-    res.json('booty hole')
+    console.log(req)
+    res.json(req)
 })
 router.post('/api/projects', (req, res) => {
 

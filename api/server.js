@@ -9,7 +9,7 @@ server.use(logger)
 
 server.use('/api/projects', projectRouter)
 
-server.get('/', (req, res) => {
+server.get('*', (req, res) => {
     res.send(`<h2>Web Sprint Challenge: Build a web api</h2>`)
 })
 

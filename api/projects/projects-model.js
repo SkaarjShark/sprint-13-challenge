@@ -11,11 +11,9 @@ module.exports = {
 };
 
 function get(id) {
-  console.log('a') // will remove
   let query = db("projects as p");
 
   if (id) {
-    console.log('b') // will remove
     query.where("p.id", id).first();
 
     const promises = [query, getProjectActions(id)]; // [ projects, actions ]
@@ -32,7 +30,6 @@ function get(id) {
       }
     });
   } else {
-    console.log('c') // will remove
     return query.then(projects => {
       return projects.map(project => mappers.projectToBody(project));
     });

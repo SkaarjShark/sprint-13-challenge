@@ -1,5 +1,5 @@
 const express = require('express')
-const { validateProject } = require('../actions/actions-middlware')
+const { validateProject } = require('../projects/projects-middleware')
 const Actions = require('../actions/actions-model')
 const Projects = require('./projects-model')
 
@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
     console.log('get ran')
     Projects.get()
         .then(found => {
-            res.json(found)
+            res.status(200).json(found)
         })
         .catch(next)
 })
@@ -17,7 +17,7 @@ router.get('/:id/actions', (req, res) => {
 
 })
 router.get('/:id', validateProject, (req, res, next) => {
-    console.log('id ', id)
+    // console.log('id ', id)
     console.log('req ', req)
     console.log('req.params.id ', req.params.id)
     Projects.get(req.params.id)

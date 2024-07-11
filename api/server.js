@@ -1,5 +1,5 @@
 const express = require('express');
-const { logger } = require('./actions/actions-middlware')
+const { logger } = require('./projects/projects-middleware')
 const projectRouter = require('./projects/projects-router')
 
 const server = express();

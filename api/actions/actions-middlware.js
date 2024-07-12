@@ -8,7 +8,6 @@ async function validateAction(req, res, next) {
         message: 'action not found'
       })
     } else {
-      console.log(action)
       req.action = action
       next()
     }

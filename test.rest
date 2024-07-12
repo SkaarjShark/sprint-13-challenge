@@ -5,4 +5,31 @@ GET http://localhost:8000
 GET http://localhost:8000/api/projects
 
 ###
+
+GET http://localhost:8000/api/projects/1/actions
+
+###
 GET http://localhost:8000/api/projects/1
+
+###
+POST http://localhost:8000/api/projects
+Content-Type: application/json
+
+{
+    "name": "Beat Elden Ring DLC",
+    "description": "Travel to the shadow realm and put those bosses in their place.",
+    "completed": true
+}
+
+###
+PUT http://localhost:8000/api/projects/4
+Content-Type: application/json
+
+{
+    "name": "Take a nap",
+    "description": "Got bad sleep last time and have been working hard, why not take a nap?",
+    "completed": false
+}
+
+###
+DELETE http://localhost:8000/api/projects/4
